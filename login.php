@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <title>Inicio de sesión</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/icono.png">
 </head>
 
 <body>
@@ -41,7 +42,7 @@
     } else {
     ?>
         <form class="form" method="post" name="login">
-            <h1 class="login-title">Inicio de sesión</h1>
+            <b><h1 class="login-title">Inicio de sesión</h1></b>
             <input type="text" class="login-input" name="usuario" placeholder="Usuario" autofocus="true" />
             <input type="password" class="login-input" name="contrasenia" placeholder="Contraseña" />
             <input type="submit" value="Inicio de sesión" name="submit" class="login-button" />

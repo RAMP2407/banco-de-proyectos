@@ -5,6 +5,7 @@
     <meta charset="utf-8" />
     <title>Registro</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/icono.png">
 </head>
 
 <body>

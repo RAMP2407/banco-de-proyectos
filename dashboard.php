@@ -9,6 +9,7 @@ include("auth_session.php");
     <meta charset="utf-8">
     <title>Tablero</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/icono.png">
 </head>
 
 <body>

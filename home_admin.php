@@ -9,6 +9,7 @@ include("auth_session.php");
     <meta charset="utf-8">
     <title>Home</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="icon" href="img/icono.png">
 </head>
 
 <body>
@@ -16,11 +17,11 @@ include("auth_session.php");
         <div class="barraMenu" align="top">
             <nav>
                 <ul class="menu">
-                    <li><img src="img/logo-tecnm.png" width="105" align="right" /></li>
+                    <li><img src="img/logo-tecnm.png" width="105" align="center" /></li>
                     <li class="option"><a href="#">Inicio </a></li>
-                    <li class="option"><a href="#">Proyectos</a></li>
+                    <li class="option"><a href="proyectos.php">Proyectos</a></li>
                     <li class="option"><a href="#">Perfil</a></li>
-                    <li class="option"><a href="http://localhost/banco-de-proyectos/logout.php">Cerrar sesión</a></li>
+                    <li class="option"><a href="logout.php">Cerrar sesión</a></li>
                 </ul>
             </nav>
         </div>
