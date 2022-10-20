@@ -127,10 +127,10 @@
             <b>
                 <h1 class="login-title">Dar de alta usuario</h1>
             </b>
-            <input type="text" class="login-input" name="usuario" placeholder="Usuario" autofocus="true" />
-            <input type="text" class="login-input" name="nombre" placeholder="Nombre completo" required />
-            <input type="text" class="login-input" name="correo" placeholder="Correo electrónico">
-            <input type="password" class="login-input" name="contrasenia" placeholder="Contraseña">
+            <input type="text" class="login-input" name="usuario" placeholder="Usuario" autofocus="true" pattern="^[0-9]{8}$" title="Ingresa un número de control." />
+            <input type="text" class="login-input" name="nombre" placeholder="Nombre completo" required pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" title="Ingresa un nombre válido">
+            <input type="text" class="login-input" name="correo" placeholder="Correo electrónico" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Ingresa un correo válido">
+            <input type="password" class="login-input" name="contrasenia" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un número, una mayúscula y minúscula, y al menos 8 o más caracteres">
             <div class="rol-input">
                 <label for="rol">Escoge un rol: </label>
                 <select name="rol">
@@ -145,8 +145,8 @@
             <b>
                 <h1 class="login-title">Dar de baja usuario</h1>
             </b>
-            <input type="text" class="login-input" name="usuario" placeholder="Usuario" autofocus="true" />
-            <input type="password" class="login-input" name="contrasenia" placeholder="Contraseña" />
+            <input type="text" class="login-input" name="usuario" placeholder="Usuario" autofocus="true" pattern="^[0-9]{8}$" title="Ingresa un número de control." />
+            <input type="password" class="login-input" name="contrasenia" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un número, una mayúscula y minúscula, y al menos 8 o más caracteres">
             <input type="submit" value="Baja" name="baja" class="login-button" />
         </form>
 
@@ -154,7 +154,7 @@
             <b>
                 <h1 class="login-title">Consulta</h1>
             </b>
-            <input type="text" class="login-input" name="usuario" placeholder="Usuario" autofocus="true" />
+            <input type="text" class="login-input" name="usuario" placeholder="Usuario" autofocus="true" pattern="^[0-9]{8}$" title="Ingresa un número de control." />
             <input type="submit" value="Consulta" name="consulta" class="login-button" />
         </form>
     <?php
