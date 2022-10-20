@@ -24,14 +24,13 @@
 <body>
 
     <div class="containerRegistroProyecto">
-        <div class="forms">
-          
+        <div class="forms" method="post">
          <!-- Registra datos de alumno -->    
             <div class="form alumno">
-                <form method="POST" action="registro.php">
+                <form method="POST" >
                     <h3> </br>Datos del Alumno</h2>    
                     <div class="input-field">                        
-                        <input type="text" name="noctrl" pattern="[A-Za-z\s]+" 
+                        <input type="text" name="noctrl"  
                         title="Utiliza solamente números" placeholder="No. Control" required>
                         <i class="uil uil-user"></i>
                     </div>
@@ -87,7 +86,7 @@
                         <i class="uil uil-envelope icon"></i>
                     </div>                
                     <div class="input-field">
-                        <input type="text" name="telE" pattern="[0-9]" title="Utiliza solamente números"
+                        <input type="text" name="telE"  title="Utiliza solamente números"
                             placeholder="Teléfono" required>
                         <i class="uil uil-envelope icon"></i>
                     </div>
@@ -112,47 +111,51 @@
 
 
     <?php
-    require('db.php');
+    include("db.php");
     // Insertar valores en la base de datos cuando el formulario es enviado.
-    if (isset($_REQUEST['usuario'])) {
+    if (isset($_POST['noctrl'])) {
         /**Datos alumno */
-        $noctrl = stripslashes($_REQUEST['noctrl']);
-        $noctrl = mysqli_real_escape_string($con, $noctrl);
+        $usuario = $_POST['noctrl'];
         /**Datos proyecto */
-        $nombreP = stripslashes($_REQUEST['nombreP']);
-        $nombreP    = mysqli_real_escape_string($con, $nombreP);
-        $descP    = stripslashes($_REQUEST['descP']);
-        $descP    = mysqli_real_escape_string($con, $descP);
+        $nombreP = $_POST['nombreP'];
+        $descP = $_POST['descP'];
         /**Datos empresa */
-        $nomE = stripslashes($_REQUEST['nomE']);
-        $nomE = mysqli_real_escape_string($con, $nomE);
-        $giroE = stripslashes($_REQUEST['giroE']);
-        $giroE = mysqli_real_escape_string($con, $giroE);
-        $dirE = stripslashes($_REQUEST['dirE']);
-        $dirE = mysqli_real_escape_string($con, $dirE);
-        $telE = stripslashes($_REQUEST['telE']);
-        $telE = mysqli_real_escape_string($con, $telE);
-        $correoE = stripslashes($_REQUEST['correoE']);
-        $correoE = mysqli_real_escape_string($con, $correoE);
-        $webE = stripslashes($_REQUEST['webE']);
-        $webE = mysqli_real_escape_string($con, $webE);
+        $nomE = $_POST['nomE'];
+        $giroE = $_POST['giroE'];
+        $dirE = $_POST['dirE'];
+        $telE = $_POST['telE'];
+        $correoE = $_POST['correoE'];
+        $webE = $_POST['webE'];
+        
+        //Datos tabla proyectos
+        //id 	nombre 	desc 	alumno 	asesor 	empresa 	        
+        //Datos tabla empresas
+        //id 	nombre 	giro 	direcc 	tel 	correo 	web 	
+    
+        $query    = "SELECT * FROM usuarios WHERE usuario ='$usuario'";
+        $all = "SELECT * FROM usuarios WHERE usuario ='$usuario'";
+        $result = mysqli_query($con, $query);
+        $obtenerId = mysqli_query($con, $all);
+        $rows = mysqli_num_rows($result);
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $rowId = mysqli_fetch_array($obtenerId, MYSQLI_ASSOC);
+        $idUser = $rowId['id'];
 
-        $query    = "INSERT into `usuarios` (usuario, nombre, correo, contrasenia, rol)
-                     VALUES ('$usuario', '$nombre', '$correo', '$contrasenia', '$rol')";
-                     
-        $result   = mysqli_query($con, $query);
-        if ($result) {
-            echo "<div class='form'>
-                  <h3>Registro exitoso.</h3><br/>
-                  <p class='link'>Haz click aquí para <a href='login.php'>Iniciar sesión</a></p>
-                  </div>";
-        } else {
-            echo "<div class='form'>
-                  <h3>Campos requeridos faltantes.</h3><br/>
-                  <p class='link'>Haz click aquí para <a href='registration.php'>Registrarte</a> again.</p>
-                  </div>";
+        if ($rows == 1) {
+            //Si el usuario existe registra los datos en la base de datos
+            $query  = "INSERT INTO empresas (nombre, giro, direcc, tel, correo, web, idUser)
+                     VALUES ('$nomE', '$giroE', '$dirE', '$telE', '$correoE' , '$webE' , '$idUser')";
+            $result = mysqli_query($con, $query);
+        } else {           
+                        ?>                        
+                        <html>        
+                            <script>
+                                alert("El usuario ingresado no existe");
+                            </script>
+                        </html>
+                        <?php          
         }
-    } 
+    }               
     ?>
 </body>
 </html>
