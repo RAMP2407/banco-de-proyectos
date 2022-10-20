@@ -1,3 +1,7 @@
+<?php
+//incluir auth_session.php en todas las páginas de usuario
+include("auth_session.php");
+?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -111,6 +115,12 @@
         /**Datos proyecto */
         $nombreP = $_POST['nombreP'];
         $descP = $_POST['descP'];
+        /*Datos admin/asesor */
+        $asesor = $_SESSION['usuario'];
+        $consulta_asesor    = "SELECT * FROM `usuarios` WHERE usuario='$asesor'";
+        $resultado_asesor = mysqli_query($con, $consulta_asesor);
+        $registro_asesor = mysqli_fetch_array($resultado_asesor, MYSQLI_ASSOC);
+        $asesor = $registro_asesor['id'];
         /**Datos empresa */
         $nomE = $_POST['nomE'];
         $giroE = $_POST['giroE'];
@@ -119,27 +129,39 @@
         $correoE = $_POST['correoE'];
         $webE = $_POST['webE'];
 
+        //Insertar datos de la empresa en la tabla empresa
+        $query1    = "INSERT INTO `empresas` (nombre, giro, direcc, tel, correo, web)
+        VALUES ('$nomE', '$giroE', '$dirE', '$telE', '$correoE', '$webE')";
+        $result1 = mysqli_query($con, $query1);
+
         //Datos tabla proyectos
         //id 	nombre 	desc 	alumno 	asesor 	empresa 	        
         //Datos tabla empresas
         //id 	nombre 	giro 	direcc 	tel 	correo 	web 	
 
-        //$admin = $_SESSION['usuario'] POSIBLE SOLUCION
+        $consulta_usuario   = "SELECT * FROM `usuarios` WHERE usuario ='$usuario'";
+        $consulta_empresa    = "SELECT * FROM `empresas` WHERE nombre ='$nomE'";
+        $resultado_usuario = mysqli_query($con, $consulta_usuario);
 
-        $query    = "SELECT * FROM usuarios WHERE usuario ='$usuario'";
-        $all = "SELECT * FROM usuarios WHERE usuario ='$usuario'";
-        $result = mysqli_query($con, $query);
-        $obtenerId = mysqli_query($con, $all);
-        $rows = mysqli_num_rows($result);
-        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-        $rowId = mysqli_fetch_array($obtenerId, MYSQLI_ASSOC);
-        $idUser = $rowId['id'];
+        $registro_usuario = mysqli_fetch_array($resultado_usuario, MYSQLI_ASSOC);
+        $idUser = $registro_usuario['id'];
+
+        $rows = mysqli_num_rows($resultado_usuario);
+
+        $resultado_empresa = mysqli_query($con,  $consulta_empresa);
+
+        $registro_empresa = mysqli_fetch_array($resultado_empresa, MYSQLI_ASSOC);
+        $idE = $registro_empresa['id'];
 
         if ($rows == 1) {
             //Si el usuario existe registra los datos en la base de datos
-            $query  = "INSERT INTO empresas (nombre, giro, direcc, tel, correo, web, idUser)
-                     VALUES ('$nomE', '$giroE', '$dirE', '$telE', '$correoE' , '$webE' , '$idUser')";
+            $query  = "INSERT INTO `proyectos` (nombre, descP, alumno, asesor, empresa)
+                     VALUES ('$nombreP', '$descP', '$idUser', '$asesor', '$idE')";
             $result = mysqli_query($con, $query);
+            echo "<div class='form'>
+            <h3>Registro de proyecto exitoso.</h3><br/>
+            <p class='link'>Haz click aquí para <a href='proyectos.php'>regresar a proyectos</a></p>
+            </div>";
         } else {
     ?>
             <html>
