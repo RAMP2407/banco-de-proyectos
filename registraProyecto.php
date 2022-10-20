@@ -124,6 +124,8 @@
         //Datos tabla empresas
         //id 	nombre 	giro 	direcc 	tel 	correo 	web 	
 
+        //$admin = $_SESSION['usuario'] POSIBLE SOLUCION
+
         $query    = "SELECT * FROM usuarios WHERE usuario ='$usuario'";
         $all = "SELECT * FROM usuarios WHERE usuario ='$usuario'";
         $result = mysqli_query($con, $query);
