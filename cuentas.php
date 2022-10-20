@@ -115,7 +115,7 @@
                 <nav>
                     <ul class="menu">
                         <li><img src="img/logo-tecnm.png" width="105" align="center" /></li>
-                        <li class="option"><a href="#">Inicio </a></li>
+                        <li class="option"><a href="home_admin.php">Inicio </a></li>
                         <li class="option"><a href="proyectos.php">Proyectos</a></li>
                         <li class="option"><a href="cuentas.php">Cuentas</a></li>
                         <li class="option"><a href="logout.php">Cerrar sesión</a></li>
