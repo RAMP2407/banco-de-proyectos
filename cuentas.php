@@ -1,3 +1,7 @@
+<?php
+//incluir auth_session.php en todas las páginas de usuario
+include("auth_session.php");
+?>
 <!DOCTYPE html>
 <html>
 
