@@ -37,50 +37,63 @@ include("auth_session.php");
         </div>
     </div>
 
-    <?php  
-    include("db.php");  
+    <?php
+    include("db.php");
     $cuenta_proyectos = "SELECT * FROM proyectos";
-    $resultado_busca_proyectos = mysqli_query($con,$cuenta_proyectos);
+    $resultado_busca_proyectos = mysqli_query($con, $cuenta_proyectos);
     $numero_proyectos = mysqli_num_rows($resultado_busca_proyectos);
 
     //Consultando la id del primer proyecto para empezar la consulta desde ahí
     $consulta_primer_proyecto = "SELECT * FROM `proyectos`";
-    $resultado_primer_proy = mysqli_query($con, $consulta_primer_proyecto);    
+    $resultado_primer_proy = mysqli_query($con, $consulta_primer_proyecto);
     $registro_primer_proy = mysqli_fetch_array($resultado_primer_proy, MYSQLI_ASSOC);
     $primer_id = $registro_primer_proy['id'];
     //Contando la ultima id para parar 
     $numero_de_proyectos = mysqli_num_rows($resultado_primer_proy);
-    $ultima_id = $primer_id + ($numero_de_proyectos-1);
-    
+    $ultima_id = $primer_id + ($numero_de_proyectos - 1);
+
     //*Recorremos los registros y los mostramos */
-    for($primer_id; $primer_id<=$ultima_id; $primer_id++){
+    for ($primer_id; $primer_id <= $ultima_id; $primer_id++) {
         // Obtener datos del usuario
         //id 	nombre 	descP 	alumno 	asesor 	empresa 	
         $busca_proyectos    = "SELECT * FROM `proyectos` WHERE id='$primer_id'";
         $result = mysqli_query($con, $busca_proyectos);
         $rows = mysqli_num_rows($result);
-            $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
-            $nombre = $row['nombre'];
-            $descP = $row['descP'];
-            $alumno = $row['alumno'];            
-            $empresa = $row['empresa'];
-            $asesor = " ";
+        $row = mysqli_fetch_array($result, MYSQLI_ASSOC);
+        $nombre = $row['nombre'];
+        $descP = $row['descP'];
+        $alumno = $row['alumno'];
+        $empresa = $row['empresa'];
+        $asesor = $row['asesor'];
 
-        $busca_asesor    = "SELECT * FROM `usuarios` WHERE id='$primer_id'";
+        //Recuperar alumno
+        $busca_alumno = "SELECT * FROM `usuarios` WHERE id='$alumno'";
+        $resultado_alumno = mysqli_query($con, $busca_alumno);
+        $r = mysqli_fetch_array($resultado_alumno, MYSQLI_ASSOC);
+        $alumno = $r['nombre'];
+
+        //Recuperar asesor
+        $busca_asesor    = "SELECT * FROM `usuarios` WHERE id='$asesor'";
         $resultado_asesor = mysqli_query($con, $busca_asesor);
         $r = mysqli_fetch_array($resultado_asesor, MYSQLI_ASSOC);
         $asesor = $r['nombre'];
-        
-            echo "<div class='form'>
-            <h3>Datos del proyecto <br/>'$nombre'</h3><br/>
+
+        //Recuperar empresa
+        $busca_empresa = "SELECT * FROM `empresas` WHERE id='$empresa'";
+        $resultado_empresa = mysqli_query($con, $busca_empresa);
+        $r = mysqli_fetch_array($resultado_empresa, MYSQLI_ASSOC);
+        $empresa = $r['nombre'];
+
+        echo "<div class='form'>
+            <h3>Datos del proyecto <br/>\"$nombre\"</h3><br/>
             <p>Descripción: $descP</p><br/>
             <p>Alumno encargado: $alumno</p><br/>
             <p>Asesor del proyecto: $asesor</p><br/>
             <p>Empresa a la que se aplica el proyecto: $empresa</p>
             <br>            
             </div>";
-    }//for
-    
+    } //for
+
     ?>
 
 </body>

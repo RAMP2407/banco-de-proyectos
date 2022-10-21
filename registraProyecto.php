@@ -132,11 +132,11 @@ include("auth_session.php");
                 <div class="form proyecto">
                     <h3> </br>Datos del Proyecto</h2>
                         <div class="input-field">
-                            <input type="text" name="nombreP" pattern="[A-Za-z\s]+" title="Utiliza solo letras mayúsculas y minúsculas" placeholder="Nombre del Proyecto" required>
+                            <input type="text" name="nombreP" pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" title="Ingresa un nombre válido" placeholder="Nombre del Proyecto" required>
                             <i class="uil uil-envelope icon"></i>
                         </div>
                         <div class="input-field">
-                            <input type="text" name="descP" pattern="[A-Za-z\s]+" title="Utiliza solo letras mayúsculas y minúsculas" placeholder="Descripción del proyecto" required>
+                            <input type="text" name="descP" pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" title="Ingresa un nombre válido" placeholder="Descripción del proyecto" required>
                             <i class="uil uil-envelope icon"></i>
                         </div>
                 </div>
@@ -145,19 +145,19 @@ include("auth_session.php");
                 <div class="form emp">
                     <h3> </br>Datos de la empresa en la que se implementará el proyecto</h2>
                         <div class="input-field">
-                            <input type="text" name="nomE" pattern="[A-Za-z\s]+" title="Utiliza solo letras mayúsculas y minúsculas" placeholder="Nombre" required>
+                            <input type="text" name="nomE" pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" title="Ingresa un nombre válido" placeholder="Nombre" required>
                             <i class="uil uil-envelope icon"></i>
                         </div>
                         <div class="input-field">
-                            <input type="text" name="giroE" pattern="[A-Za-z0-9#\s]+" title="Utiliza solo letras mayúsculas y minúsculas" placeholder="Giro" required>
+                            <input type="text" name="giroE" pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" title="Ingresa un nombre válido" placeholder="Giro" required>
                             <i class="uil uil-envelope icon"></i>
                         </div>
                         <div class="input-field">
-                            <input type="text" name="dirE" pattern="[A-Za-z\s]+" title="Ingresa una dirección válida" placeholder="Dirección" required>
+                            <input type="text" name="dirE" pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" title="Ingresa un nombre válido" placeholder="Dirección" required>
                             <i class="uil uil-envelope icon"></i>
                         </div>
                         <div class="input-field">
-                            <input type="text" name="telE" title="Utiliza solamente números" placeholder="Teléfono" required>
+                            <input type="text" name="telE" pattern="^[0-9]{10}$" title="Ingresa un número de 10 dígitos." placeholder="Teléfono" required>
                             <i class="uil uil-envelope icon"></i>
                         </div>
                         <div class="input-field">
@@ -165,7 +165,7 @@ include("auth_session.php");
                             <i class="uil uil-envelope icon"></i>
                         </div>
                         <div class="input-field">
-                            <input type="text" name="webE" title="Ingresa una página web válida" placeholder="Página web">
+                            <input type="text" name="webE" pattern="@^(http\:\/\/|https\:\/\/)?([a-z0-9][a-z0-9\-]*\.)+[a-z0-9][a-z0-9\-]*$@i" title="Ingresa una página web válida" placeholder="Página web">
                             <i class="uil uil-envelope icon"></i>
                         </div>
 

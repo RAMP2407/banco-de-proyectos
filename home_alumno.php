@@ -18,7 +18,7 @@ include("auth_session.php");
             <ul class="menu">
                 <li><img src="img/logo-tecnm.png" width="105" /></li>
                 <li><a href="home_alumno.php">Inicio </a></li>
-                <li><a href="">Mi proyecto</a></li>
+                <li><a href="mi_proyecto.php">Mi proyecto</a></li>
                 <li><a href="http://localhost/banco-de-proyectos/logout.php">Cerrar sesión</a></li>
             </ul>
         </nav>
