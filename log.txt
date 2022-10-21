@@ -8,3 +8,6 @@
 [Sing up][20-10-2022 20:38:11]: Registro exitoso --- Usuario: 12341234
 [Login][20-10-2022 20:38:55]: Inicio sesión exitoso --- Usuario: 19180918
 [Login][20-10-2022 20:39:49]: Inicio sesión exitoso --- Usuario: 19180918
+[Login][20-10-2022 20:42:35]: Inicio sesión exitoso --- Usuario: 19180918
+[Register][20-10-2022 20:51:31]: Registro de proyecto exitoso --- Usuario: 12341234
+[Register][20-10-2022 20:54:45]: Registro de proyecto fallido --- Usuario: 43214321

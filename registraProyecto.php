@@ -28,6 +28,7 @@ include("auth_session.php");
 
 <body>
     <?php
+    require('Log.php');
     include("db.php");
     // Insertar valores en la base de datos cuando el formulario es enviado.
     if (isset($_POST['noctrl'])) {
@@ -66,7 +67,7 @@ include("auth_session.php");
 
         $registro_usuario = mysqli_fetch_array($resultado_usuario, MYSQLI_ASSOC);
         $idUser = $registro_usuario['id'];
-        
+
         $rows = mysqli_num_rows($resultado_usuario);
 
         $resultado_empresa = mysqli_query($con,  $consulta_empresa);
@@ -79,11 +80,18 @@ include("auth_session.php");
             $query  = "INSERT INTO `proyectos` (nombre, descP, alumno, asesor, empresa)
                      VALUES ('$nombreP', '$descP', '$idUser', '$asesor', '$idE')";
             $result = mysqli_query($con, $query);
+            // Log
+            $log = new Log("log.txt");
+            $log->writeLine("Register", "Registro de proyecto exitoso --- Usuario: $usuario");
+            $log->close();
             echo "<div class='form'>
             <h3>Registro de proyecto exitoso.</h3><br/>
             <p class='link'>Haz click aquí para <a href='proyectos.php'>regresar a proyectos</a></p>
             </div>";
         } else {
+            $log = new Log("log.txt");
+            $log->writeLine("Register", "Registro de proyecto fallido --- Usuario: $usuario");
+            $log->close();
             echo "<div class='form'>
             <h3>El usuario ingresado no existe.</h3><br/>
             <p class='link'>Haz click aquí para <a href='proyectos.php'>regresar a proyectos</a></p>
