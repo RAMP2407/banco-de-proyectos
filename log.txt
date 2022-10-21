@@ -11,3 +11,9 @@
 [Login][20-10-2022 20:42:35]: Inicio sesión exitoso --- Usuario: 19180918
 [Register][20-10-2022 20:51:31]: Registro de proyecto exitoso --- Usuario: 12341234
 [Register][20-10-2022 20:54:45]: Registro de proyecto fallido --- Usuario: 43214321
+[Login][20-10-2022 21:01:43]: Inicio sesión exitoso --- Usuario: 19180918
+[Sing up][20-10-2022 21:02:56]: Registro de proyecto exitoso --- Usuario: 98765432
+[Unsing][20-10-2022 21:05:52]: Baja exitosa --- Usuario: 98765432
+[Unsing][20-10-2022 21:06:07]: Baja fallida --- Usuario: 00000000
+[Read][20-10-2022 21:11:28]: Consulta de usuario exitosa --- Usuario: 12341234
+[Read][20-10-2022 21:11:38]: Consulta de usuario exitosa --- Usuario: 11111111

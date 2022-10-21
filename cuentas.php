@@ -14,6 +14,7 @@ include("auth_session.php");
 
 <body>
     <?php
+    require('Log.php');
     require('db.php');
     session_start();
     // Dar de alta usuario
@@ -45,11 +46,19 @@ include("auth_session.php");
                          VALUES ('$usuario', '$nombre', '$correo', '$contrasenia', '$rol')";
             $nuevo_usuario   = mysqli_query($con, $query);
             if ($nuevo_usuario) {
+                //Log
+                $log = new Log("log.txt");
+                $log->writeLine("Sing up", "Registro exitoso --- Usuario: $usuario");
+                $log->close();
                 echo "<div class='form'>
                 <h3>Registro exitoso.</h3><br/>
                 <p class='link'>Haz click aquí para <a href='cuentas.php'>regresar a cuentas</a>.</p>
                 </div>";
             } else {
+                //Log
+                $log = new Log("log.txt");
+                $log->writeLine("Sing up", "Registro fallido --- Usuario: $usuario");
+                $log->close();
                 echo "<div class='form'>
                 <h3>Campos requeridos faltantes.</h3><br/>
                 <p class='link'>Haz click aquí para <a href='cuentas.php'>regresar a cuentas</a>.</p>
@@ -69,11 +78,19 @@ include("auth_session.php");
         $result = mysqli_query($con, $query);
         $rows = mysqli_affected_rows($con);
         if ($rows == 1) {
+            //Log
+            $log = new Log("log.txt");
+            $log->writeLine("Unsing", "Baja exitosa --- Usuario: $usuario");
+            $log->close();
             echo "<div class='form'>
             <h3>El usuario $usuario ha sido dado de baja.</h3><br/>
             <p class='link'>Haz click aquí para <a href='cuentas.php'>regresar a cuentas</a>.</p>
             </div>";
         } else {
+            //Log
+            $log = new Log("log.txt");
+            $log->writeLine("Unsing", "Baja fallida --- Usuario: $usuario");
+            $log->close();
             echo "<div class='form'>
             <h3>Este usuario no existe.</h3><br/>
             <p class='link'>Haz click aquí para <a href='cuentas.php'>regresar a cuentas</a>.</p>
@@ -96,6 +113,10 @@ include("auth_session.php");
             $correo = $row['correo'];
             $contrasenia = $row['contrasenia'];
             $rol = $row['rol'];
+            //Log
+            $log = new Log("log.txt");
+            $log->writeLine("Read", "Consulta de usuario exitosa --- Usuario: $usuario");
+            $log->close();
             echo "<div class='form'>
             <h3>Datos del usuario $usuario</h3><br/>
             <p>Nombre: $nombre</p>
@@ -106,6 +127,10 @@ include("auth_session.php");
             <p class='link'>Haz click aquí para <a href='cuentas.php'>regresar a cuentas</a>.</p>
             </div>";
         } else {
+            //Log
+            $log = new Log("log.txt");
+            $log->writeLine("Read", "Consulta de usuario exitosa --- Usuario: $usuario");
+            $log->close();
             echo "<div class='form'>
             <h3>Este usuario no existe.</h3><br/>
             <p class='link'>Haz click aquí para <a href='cuentas.php'>regresar a cuentas</a>.</p>
