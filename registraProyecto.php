@@ -145,7 +145,7 @@ include("auth_session.php");
 
         $registro_usuario = mysqli_fetch_array($resultado_usuario, MYSQLI_ASSOC);
         $idUser = $registro_usuario['id'];
-
+        
         $rows = mysqli_num_rows($resultado_usuario);
 
         $resultado_empresa = mysqli_query($con,  $consulta_empresa);
