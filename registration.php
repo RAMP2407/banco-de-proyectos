@@ -46,6 +46,10 @@
         }
     } else {
     ?>
+
+        <img id="izquierda" src="img/logo-tecnm-blanco.png">
+        <img id="derecha" src="img/logo-itslp.png">
+
         <form class="form" action="" method="post">
             <h1 class="login-title">Registrate</h1>
             <input type="text" class="login-input" name="usuario" placeholder="Usuario" required pattern="^[0-9]{8}$" title="Ingresa un número de control." />

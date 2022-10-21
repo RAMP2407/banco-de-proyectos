@@ -5,7 +5,6 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
-    font
 }
 
 body {
@@ -19,7 +18,8 @@ body {
     background: white;
     border-radius: 10px;
 }
-.agregaP{
+
+.agregaP {
     color: #fff;
     background: #830B26;
     border: 0;
@@ -29,10 +29,10 @@ body {
     height: 50px;
     font-size: 16px;
     text-align: center;
-    cursor: pointer;    
+    cursor: pointer;
 }
 
-.agregaP:hover{
+.agregaP:hover {
     color: #fff;
     background: #63071b;
     border: 0;
@@ -42,7 +42,7 @@ body {
     height: 50px;
     font-size: 14px;
     text-align: center;
-    cursor: pointer;    
+    cursor: pointer;
 }
 
 h1.login-title {
@@ -126,7 +126,7 @@ header {
     /*Color al no seleccionar*/
     width: 60%;
     position: fixed;
-    top:10px;
+    top: 10px;
     right: 20%;
     left: 20%;
     /* == Acompaña al hacer scroll*/
@@ -200,12 +200,12 @@ nav ul li a:hover {
 
 /* ---------------- */
 
-.containerRegistroProyecto .form{
+.containerRegistroProyecto .form {
     width: 40%;
     margin-bottom: 10px;
 }
 
-.containerRegistroProyecto .form .placeholder{
+.containerRegistroProyecto .form .placeholder {
     width: 100%;
 }
 
@@ -220,5 +220,24 @@ nav ul li a:hover {
     border-bottom: 2px solid #ccc;
     border-top: 2px solid transparent;
     transition: all 0.2s ease;
-    
+
+}
+
+/* ----- Logos de inicio de sesión ----- */
+#izquierda {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    height: 110px;
+    width: 225px;
+}
+
+#derecha {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+    height: 120px;
+    width: 120px;
 }

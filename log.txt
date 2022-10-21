@@ -10,3 +10,5 @@
 [Login][20-10-2022 22:27:47]: Inicio sesión exitoso --- Usuario: 19180001
 [Login][20-10-2022 22:30:14]: Inicio sesión exitoso --- Usuario: 19180918
 [Login][20-10-2022 22:30:55]: Inicio sesión exitoso --- Usuario: 19180001
+[Login][20-10-2022 22:39:09]: Inicio sesión exitoso --- Usuario: 19180918
+[Login][20-10-2022 22:39:54]: Inicio sesión exitoso --- Usuario: 19180001

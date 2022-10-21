@@ -50,6 +50,11 @@
         }
     } else {
     ?>
+
+
+        <img id="izquierda" src="img/logo-tecnm-blanco.png">
+        <img id="derecha" src="img/logo-itslp.png">
+
         <form class="form" method="post" name="login">
             <b>
                 <h1 class="login-title">Inicio de sesión</h1>
