@@ -10,6 +10,7 @@
 
 <body>
     <?php
+    require('Log.php');
     require('db.php');
     // Insertar valores en la base de datos cuando el formulario es enviado.
     if (isset($_REQUEST['usuario'])) {
@@ -27,11 +28,17 @@
                      VALUES ('$usuario', '$nombre', '$correo', '$contrasenia', '$rol')";
         $result   = mysqli_query($con, $query);
         if ($result) {
+            $log = new Log("log.txt");
+            $log->writeLine("Sing up", "Registro exitoso --- Usuario: $usuario");
+            $log->close();
             echo "<div class='form'>
                   <h3>Registro exitoso.</h3><br/>
                   <p class='link'>Haz click aquí para <a href='login.php'>Iniciar sesión</a></p>
                   </div>";
         } else {
+            $log = new Log("log.txt");
+            $log->writeLine("Sing up", "Registro fallido --- Usuario: $usuario");
+            $log->close();
             echo "<div class='form'>
                   <h3>Campos requeridos faltantes.</h3><br/>
                   <p class='link'>Haz click aquí para <a href='registration.php'>Registrarte</a> again.</p>

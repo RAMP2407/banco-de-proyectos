@@ -10,6 +10,7 @@
 
 <body>
     <?php
+    require('Log.php');
     require('db.php');
     session_start();
     // Crear sesión de usuario cuando el formulario es enviado.
@@ -27,6 +28,10 @@
 
         if ($rows == 1) {
             $_SESSION['usuario'] = $usuario;
+            // Log
+            $log = new Log("log.txt");
+            $log->writeLine("Login", "Inicio sesión exitoso --- Usuario: $usuario");
+            $log->close();
             // Redireccionar a la página del usuario según su rol
             if ($row['rol'] == "alumno") {
                 header("Location: home_alumno.php");
@@ -34,6 +39,10 @@
                 header("Location: home_admin.php");
             }
         } else {
+            // Log
+            $log = new Log("log.txt");
+            $log->writeLine("Login", "Inicio sesión fallido --- Usuario: $usuario");
+            $log->close();
             echo "<div class='form'>
                   <h3>Usuario/contraseña incorrecto.</h3><br/>
                   <p class='link'>Haz click aquí para <a href='login.php'>Iniciar sesión</a> otra vez.</p>

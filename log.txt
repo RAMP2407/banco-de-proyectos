@@ -1,0 +1,10 @@
+[Login][21-10-2022 02:37:26]: Inicio sesión --- Usuario: 
+[Login][21-10-2022 02:41:25]: Inicio sesión --- Usuario: 
+[Login][20-10-2022 19:43:12]: Inicio sesión --- Usuario: 
+[Login][20-10-2022 20:15:11]: Inicio sesión --- Usuario: 
+[Login][20-10-2022 20:30:23]: Inicio sesión exitoso --- Usuario: 19180918
+[Login][20-10-2022 20:30:59]: Inicio sesión fallido --- Usuario: 19180918
+[Login][20-10-2022 20:31:19]: Inicio sesión exitoso --- Usuario: 19180918
+[Sing up][20-10-2022 20:38:11]: Registro exitoso --- Usuario: 12341234
+[Login][20-10-2022 20:38:55]: Inicio sesión exitoso --- Usuario: 19180918
+[Login][20-10-2022 20:39:49]: Inicio sesión exitoso --- Usuario: 19180918
