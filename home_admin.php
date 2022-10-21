@@ -27,8 +27,14 @@ include("auth_session.php");
         </div>
     </header>
     <div class="form">
-        <p>Hola admin, <?php echo $_SESSION['usuario']; ?>!</p>
-        <p><a href="logout.php">Cerrar sesión</a></p>
+        <p>Hola admin, <?php 
+		include("db.php");
+	$usuario = $_SESSION['usuario'];
+    $busca_id = "SELECT * FROM `usuarios` WHERE usuario='$usuario'";
+    $resultado_busca_id = mysqli_query($con, $busca_id);
+    $row = mysqli_fetch_array($resultado_busca_id, MYSQLI_ASSOC);
+    $usuario_id = $row['nombre']; echo "$usuario_id";
+		?>!</p>
     </div>
 </body>
 

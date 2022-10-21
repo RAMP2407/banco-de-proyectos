@@ -12,3 +12,17 @@
 [Login][20-10-2022 22:30:55]: Inicio sesión exitoso --- Usuario: 19180001
 [Login][20-10-2022 22:39:09]: Inicio sesión exitoso --- Usuario: 19180918
 [Login][20-10-2022 22:39:54]: Inicio sesión exitoso --- Usuario: 19180001
+[Login][20-10-2022 23:45:49]: Inicio sesión fallido --- Usuario: 
+[Login][20-10-2022 23:50:00]: Inicio sesión fallido --- Usuario: 19180918
+[Login][20-10-2022 23:50:14]: Inicio sesión exitoso --- Usuario: 19180918
+[Read][20-10-2022 23:51:29]: Consulta de usuario exitosa --- Usuario: 19180918
+[Login][20-10-2022 23:53:09]: Inicio sesión exitoso --- Usuario: 19180919
+[Login][20-10-2022 23:54:12]: Inicio sesión exitoso --- Usuario: 19180919
+[Login][21-10-2022 01:25:10]: Inicio sesión exitoso --- Usuario: 19180918
+[Login][21-10-2022 01:25:38]: Inicio sesión exitoso --- Usuario: 19180919
+[Login][21-10-2022 01:56:36]: Inicio sesión exitoso --- Usuario: 19180002
+[Login][21-10-2022 02:05:27]: Inicio sesión exitoso --- Usuario: 19180919
+[Login][21-10-2022 02:20:16]: Inicio sesión exitoso --- Usuario: 19180918
+[Login][21-10-2022 02:21:54]: Inicio sesión exitoso --- Usuario: 19180918
+[Login][21-10-2022 02:25:20]: Inicio sesión exitoso --- Usuario: 19180918
+[Login][21-10-2022 02:31:55]: Inicio sesión exitoso --- Usuario: 19180918

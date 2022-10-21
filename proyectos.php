@@ -31,7 +31,7 @@ include("auth_session.php");
         <div class="forms">
             <form method="POST" action="registraProyecto.php">
                 <div class="form login">
-                    <input type="submit" value="Agregar proyecto" name="submit" class="login-button" />
+                    <input type="submit" class="agregaP" value="Agregar proyecto" name="submit" class="login-button" />
                 </div>
             </form>
         </div>
@@ -64,8 +64,8 @@ include("auth_session.php");
         $descP = $row['descP'];
         $alumno = $row['alumno'];
         $empresa = $row['empresa'];
-        $asesor = $row['asesor'];
-
+        $asesor = $row['asesor']; //Es id del asesor
+	
         //Recuperar alumno
         $busca_alumno = "SELECT * FROM `usuarios` WHERE id='$alumno'";
         $resultado_alumno = mysqli_query($con, $busca_alumno);
@@ -77,7 +77,7 @@ include("auth_session.php");
         $resultado_asesor = mysqli_query($con, $busca_asesor);
         $r = mysqli_fetch_array($resultado_asesor, MYSQLI_ASSOC);
         $asesor = $r['nombre'];
-
+		
         //Recuperar empresa
         $busca_empresa = "SELECT * FROM `empresas` WHERE id='$empresa'";
         $resultado_empresa = mysqli_query($con, $busca_empresa);
@@ -93,6 +93,29 @@ include("auth_session.php");
             <br>            
             </div>";
     } //for
+	
+	$query = "DELETE FROM `usuarios` WHERE usuario='$usuario' AND contrasenia='$contrasenia'";
+        $result = mysqli_query($con, $query);
+        $rows = mysqli_affected_rows($con);
+        if ($rows == 1) {
+            //Log
+            $log = new Log("log.txt");
+            $log->writeLine("Unsing", "Baja exitosa --- Usuario: $usuario");
+            $log->close();
+            echo "<div class='form'>
+            <h3>El usuario $usuario ha sido dado de baja.</h3><br/>
+            <p class='link'>Haz click aquí para <a href='cuentas.php'>regresar a cuentas</a>.</p>
+            </div>";
+        } else {
+            //Log
+            $log = new Log("log.txt");
+            $log->writeLine("Unsing", "Baja fallida --- Usuario: $usuario");
+            $log->close();
+            echo "<div class='form'>
+            <h3>Este usuario no existe.</h3><br/>
+            <p class='link'>Haz click aquí para <a href='cuentas.php'>regresar a cuentas</a>.</p>
+            </div>";
+        }
 
     ?>
 

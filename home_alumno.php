@@ -24,8 +24,14 @@ include("auth_session.php");
         </nav>
     </header>
     <div class="form">
-        <p>Hola alumno, <?php echo $_SESSION['usuario']; ?>!</p>
-        <p><a href="logout.php">Cerrar sesión</a></p>
+        <p>Hola alumno, <?php 
+		include("db.php");
+	$usuario = $_SESSION['usuario'];
+    $busca_id = "SELECT * FROM `usuarios` WHERE usuario='$usuario'";
+    $resultado_busca_id = mysqli_query($con, $busca_id);
+    $row = mysqli_fetch_array($resultado_busca_id, MYSQLI_ASSOC);
+    $usuario_id = $row['nombre']; echo "$usuario_id";
+		?>!</p>
     </div>
 </body>
 

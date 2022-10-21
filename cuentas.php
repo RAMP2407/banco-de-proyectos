@@ -1,7 +1,4 @@
-<?php
-//incluir auth_session.php en todas las páginas de usuario
-include("auth_session.php");
-?>
+
 <!DOCTYPE html>
 <html>
 
@@ -156,7 +153,7 @@ include("auth_session.php");
             <b>
                 <h1 class="login-title">Dar de alta usuario</h1>
             </b>
-            <input type="text" class="login-input" name="usuario" placeholder="Usuario" autofocus="true" pattern="^[0-9]{8}$" title="Ingresa un número de control." />
+            <input type="text" class="login-input" name="usuario" placeholder="Usuario" autofocus pattern="^[0-9]{8}$" title="Ingresa un número de control." />
             <input type="text" class="login-input" name="nombre" placeholder="Nombre completo" required pattern="^[\w'\-,.][^0-9_!¡?÷?¿/\\+=@#$%ˆ&*(){}|~<>;:[\]]{2,}$" title="Ingresa un nombre válido">
             <input type="text" class="login-input" name="correo" placeholder="Correo electrónico" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Ingresa un correo válido">
             <input type="password" class="login-input" name="contrasenia" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un número, una mayúscula y minúscula, y al menos 8 o más caracteres">
@@ -170,20 +167,27 @@ include("auth_session.php");
             <input type="submit" value="Alta" name="alta" class="login-button" />
         </form>
 
+
+
+
         <form class="form" method="post" name="login">
             <b>
                 <h1 class="login-title">Dar de baja usuario</h1>
             </b>
-            <input type="text" class="login-input" name="usuario" placeholder="Usuario" autofocus="true" pattern="^[0-9]{8}$" title="Ingresa un número de control." />
+            <input type="text" class="login-input" name="usuario" placeholder="Usuario" autofocus pattern="^[0-9]{8}$" title="Ingresa un número de control." />
             <input type="password" class="login-input" name="contrasenia" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un número, una mayúscula y minúscula, y al menos 8 o más caracteres">
             <input type="submit" value="Baja" name="baja" class="login-button" />
         </form>
+        
+        
+        
+        
 
         <form class="form" method="post" name="login">
             <b>
                 <h1 class="login-title">Consulta</h1>
             </b>
-            <input type="text" class="login-input" name="usuario" placeholder="Usuario" autofocus="true" pattern="^[0-9]{8}$" title="Ingresa un número de control." />
+            <input type="text" class="login-input" name="usuario" placeholder="Usuario" autofocus pattern="^[0-9]{8}$" title="Ingresa un número de control." />
             <input type="submit" value="Consulta" name="consulta" class="login-button" />
         </form>
     <?php

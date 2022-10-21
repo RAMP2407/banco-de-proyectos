@@ -59,9 +59,9 @@
             <b>
                 <h1 class="login-title">Inicio de sesión</h1>
             </b>
-            <input type="text" class="login-input" name="usuario" placeholder="Usuario" autofocus="true" pattern="^[0-9]{8}$" title="Ingresa un número de control." />
+            <input type="text" class="login-input" name="usuario" placeholder="Usuario" autofocus pattern="^[0-9]{8}$" title="Ingresa un número de control." />
             <input type="password" class="login-input" name="contrasenia" placeholder="Contraseña" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Debe contener al menos un número, una mayúscula y minúscula, y al menos 8 o más caracteres" />
-            <input type="submit" value="Inicio de sesión" name="submit" class="login-button" />
+            <input type="submit" class="agregaP" value="Inicio de sesión" name="submit" class="login-button" />
             <p class="link"><a href="registration.php">Registrate</a></p>
         </form>
     <?php
